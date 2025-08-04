@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "prebuild": "npx protoc --ts_out ./pb --proto_path ./proto auth/auth.proto",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
