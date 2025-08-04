@@ -163,28 +163,28 @@ class RegisterRequest$Type extends MessageType<RegisterRequest> {
             reflectionMergePartial<RegisterRequest>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: RegisterRequest): RegisterRequest {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: RegisterRequest): RegisterRequest {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* string full_name */ 1:
-                    message.fullName = reader.string();
+                    message.fullName = _reader.string();
                     break;
                 case /* string email */ 2:
-                    message.email = reader.string();
+                    message.email = _reader.string();
                     break;
                 case /* string password */ 3:
-                    message.password = reader.string();
+                    message.password = _reader.string();
                     break;
                 case /* string password_confirmation */ 4:
-                    message.passwordConfirmation = reader.string();
+                    message.passwordConfirmation = _reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -227,19 +227,19 @@ class RegisterResponse$Type extends MessageType<RegisterResponse> {
             reflectionMergePartial<RegisterResponse>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: RegisterResponse): RegisterResponse {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: RegisterResponse): RegisterResponse {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* common.BaseResponse base */ 1:
-                    message.base = BaseResponse.internalBinaryRead(reader, reader.uint32(), options, message.base);
+                    message.base = BaseResponse.internalBinaryRead(_reader, _reader.uint32(), options, message.base);
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -276,22 +276,22 @@ class LoginRequest$Type extends MessageType<LoginRequest> {
             reflectionMergePartial<LoginRequest>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: LoginRequest): LoginRequest {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: LoginRequest): LoginRequest {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* string email */ 1:
-                    message.email = reader.string();
+                    message.email = _reader.string();
                     break;
                 case /* string password */ 2:
-                    message.password = reader.string();
+                    message.password = _reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -330,22 +330,22 @@ class LoginResponse$Type extends MessageType<LoginResponse> {
             reflectionMergePartial<LoginResponse>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: LoginResponse): LoginResponse {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: LoginResponse): LoginResponse {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* common.BaseResponse base */ 1:
-                    message.base = BaseResponse.internalBinaryRead(reader, reader.uint32(), options, message.base);
+                    message.base = BaseResponse.internalBinaryRead(_reader, _reader.uint32(), options, message.base);
                     break;
                 case /* string access_token */ 2:
-                    message.accessToken = reader.string();
+                    message.accessToken = _reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -380,7 +380,7 @@ class LogoutRequest$Type extends MessageType<LogoutRequest> {
             reflectionMergePartial<LogoutRequest>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: LogoutRequest): LogoutRequest {
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: LogoutRequest): LogoutRequest {
         return target ?? this.create();
     }
     internalBinaryWrite(message: LogoutRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
@@ -407,19 +407,19 @@ class LogoutResponse$Type extends MessageType<LogoutResponse> {
             reflectionMergePartial<LogoutResponse>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: LogoutResponse): LogoutResponse {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: LogoutResponse): LogoutResponse {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* common.BaseResponse base */ 1:
-                    message.base = BaseResponse.internalBinaryRead(reader, reader.uint32(), options, message.base);
+                    message.base = BaseResponse.internalBinaryRead(_reader, _reader.uint32(), options, message.base);
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -458,25 +458,25 @@ class ChangePasswordRequest$Type extends MessageType<ChangePasswordRequest> {
             reflectionMergePartial<ChangePasswordRequest>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ChangePasswordRequest): ChangePasswordRequest {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: ChangePasswordRequest): ChangePasswordRequest {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* string old_password */ 1:
-                    message.oldPassword = reader.string();
+                    message.oldPassword = _reader.string();
                     break;
                 case /* string new_password */ 2:
-                    message.newPassword = reader.string();
+                    message.newPassword = _reader.string();
                     break;
                 case /* string new_password_confirmation */ 3:
-                    message.newPasswordConfirmation = reader.string();
+                    message.newPasswordConfirmation = _reader.string();
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -516,19 +516,19 @@ class ChangePasswordResponse$Type extends MessageType<ChangePasswordResponse> {
             reflectionMergePartial<ChangePasswordResponse>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: ChangePasswordResponse): ChangePasswordResponse {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: ChangePasswordResponse): ChangePasswordResponse {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* common.BaseResponse base */ 1:
-                    message.base = BaseResponse.internalBinaryRead(reader, reader.uint32(), options, message.base);
+                    message.base = BaseResponse.internalBinaryRead(_reader, _reader.uint32(), options, message.base);
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
@@ -560,7 +560,7 @@ class GetProfileRequest$Type extends MessageType<GetProfileRequest> {
             reflectionMergePartial<GetProfileRequest>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GetProfileRequest): GetProfileRequest {
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: GetProfileRequest): GetProfileRequest {
         return target ?? this.create();
     }
     internalBinaryWrite(message: GetProfileRequest, writer: IBinaryWriter, options: BinaryWriteOptions): IBinaryWriter {
@@ -596,34 +596,34 @@ class GetProfileResponse$Type extends MessageType<GetProfileResponse> {
             reflectionMergePartial<GetProfileResponse>(this, message, value);
         return message;
     }
-    internalBinaryRead(reader: IBinaryReader, length: number, options: BinaryReadOptions, target?: GetProfileResponse): GetProfileResponse {
-        let message = target ?? this.create(), end = reader.pos + length;
-        while (reader.pos < end) {
-            let [fieldNo, wireType] = reader.tag();
+    internalBinaryRead(_reader: IBinaryReader, _length: number, options: BinaryReadOptions, target?: GetProfileResponse): GetProfileResponse {
+        let message = target ?? this.create(), end = _reader.pos + _length;
+        while (_reader.pos < end) {
+            let [fieldNo, wireType] = _reader.tag();
             switch (fieldNo) {
                 case /* common.BaseResponse base */ 1:
-                    message.base = BaseResponse.internalBinaryRead(reader, reader.uint32(), options, message.base);
+                    message.base = BaseResponse.internalBinaryRead(_reader, _reader.uint32(), options, message.base);
                     break;
                 case /* string user_id */ 2:
-                    message.userId = reader.string();
+                    message.userId = _reader.string();
                     break;
                 case /* string full_name */ 3:
-                    message.fullName = reader.string();
+                    message.fullName = _reader.string();
                     break;
                 case /* string email */ 4:
-                    message.email = reader.string();
+                    message.email = _reader.string();
                     break;
                 case /* string role_code */ 5:
-                    message.roleCode = reader.string();
+                    message.roleCode = _reader.string();
                     break;
                 case /* google.protobuf.Timestamp member_since */ 6:
-                    message.memberSince = Timestamp.internalBinaryRead(reader, reader.uint32(), options, message.memberSince);
+                    message.memberSince = Timestamp.internalBinaryRead(_reader, _reader.uint32(), options, message.memberSince);
                     break;
                 default:
                     let u = options.readUnknownField;
                     if (u === "throw")
                         throw new globalThis.Error(`Unknown field ${fieldNo} (wire type ${wireType}) for ${this.typeName}`);
-                    let d = reader.skip(wireType);
+                    let d = _reader.skip(wireType);
                     if (u !== false)
                         (u === true ? UnknownFieldHandler.onRead : u)(this.typeName, message, fieldNo, wireType, d);
             }
