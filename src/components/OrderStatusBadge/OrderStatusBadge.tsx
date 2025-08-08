@@ -28,7 +28,7 @@ const getOrderBadge = (code: string): OrderBadge => {
             };
         case ORDER_STATUS_SHIPPED:
             return {
-                name: "Sedang Dikirim",
+                name: "Sedang Dikirim 🚚",
                 backgroundColor: "#BFDBFE",
                 textColor: "#1E3A8A",
             };
