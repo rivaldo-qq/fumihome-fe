@@ -85,7 +85,7 @@ function AdminOrderDetail() {
                                             <option value="">-</option>
                                             {orderStatusCode === ORDER_STATUS_UNPAID && <option value={ORDER_STATUS_PAID}>Sudah Dibayar</option>}
                                             {orderStatusCode === ORDER_STATUS_UNPAID && <option value={ORDER_STATUS_CANCELED}>Dibatalkan</option>}
-                                            {orderStatusCode === ORDER_STATUS_PAID && <option value={ORDER_STATUS_SHIPPED}>Sedang Dikirim</option>}
+                                            {orderStatusCode === ORDER_STATUS_PAID && <option value={ORDER_STATUS_SHIPPED}>Sedang Dikirim 🚚</option>}
                                             {orderStatusCode === ORDER_STATUS_SHIPPED && <option value={ORDER_STATUS_DONE}>Selesai</option>}
                                         </select>
                                         <button
