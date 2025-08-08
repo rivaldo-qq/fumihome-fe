@@ -21,7 +21,7 @@ function HeroSection(props: HeroSectionProps) {
                     </div>
                     <div className="col-lg-7">
                         <div className="hero-img-wrap">
-                            <img src="/images/sofa.png" className="img-fluid" alt="Couch" />
+                            <img src="/images/couch.png" className="img-fluid" alt="Couch" />
                         </div>
                     </div>
                 </div>
