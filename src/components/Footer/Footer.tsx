@@ -34,16 +34,6 @@ function Footer() {
                 </div>
 
                 
-                    
-                </div>
-
-                <div className="border-top copyright">
-                    <div className="row pt-4">
-                        <div className="col-lg-6">
-                           
-                        </div>
-                    </div>
-                </div>
             </div>
         </footer>
     )
