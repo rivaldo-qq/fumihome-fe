@@ -25,7 +25,7 @@ function AdminCreateProduct() {
             const formData = new FormData();
             formData.append("image", values.image[0]);
 
-            const uploadResponse = await axios.post<uploadImageResponse>("https://old-geckos-sleep.loca.lt/product/upload", formData);
+            const uploadResponse = await axios.post<uploadImageResponse>("https://slick-spoons-tickle.loca.lt/product/upload", formData);
             if (uploadResponse.status !== 200) {
                 Swal.fire({
                     title: "Upload Gambar Gagal",
