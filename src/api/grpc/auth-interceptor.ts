@@ -8,7 +8,8 @@ export const authInterceptor: RpcInterceptor = {
             authorization: accessToken ? `Bearer ${accessToken}` : '',
             'X-Requested-With': 'XMLHttpRequest',
             'Content-Type': 'application/grpc-web+proto',
-            'X-Grpc-Web': '1'
+            'X-Grpc-Web': '1',
+            'X-Bypass-Auth': 'true'
         }
         return next(method, input, options);
     },
