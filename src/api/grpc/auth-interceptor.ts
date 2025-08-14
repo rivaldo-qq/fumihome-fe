@@ -10,8 +10,9 @@ export const authInterceptor: RpcInterceptor = {
         if (typeof window !== 'undefined') {
       options.meta = {
         ...options.meta,
-        'X-Requested-With': 'XMLHttpRequest',
         'Content-Type': 'application/grpc-web+proto',
+      'X-Grpc-Web': '1',
+      'Authorization': `Bearer ${localStorage.getItem('access_token')
       }
         return next(method, input, options);
     },
