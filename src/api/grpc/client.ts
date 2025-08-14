@@ -15,7 +15,7 @@ let newsletterClient: INewsletterServiceClient | null = null;
 
 const getWebTransport = () => {
         webTransport = new GrpcWebFetchTransport({
-            baseUrl: "http://localhost:8080",
+            baseUrl: "https://grpcnya.zeabur.app",
             interceptors: [authInterceptor],
              fetchInit: {
                 mode: 'cors',
