@@ -16,7 +16,7 @@ let newsletterClient: INewsletterServiceClient | null = null;
 const getWebTransport = () => {
         webTransport = new GrpcWebFetchTransport({
             baseUrl: "https://cors-anywhere.herokuapp.com/https://grpcnya.zeabur.app",
-            interceptors: [enhancedInterceptor],
+            interceptors: [authInterceptor],
              fetchInit: {
              mode: 'cors',
              credentials: 'omit', // Important for CORS
