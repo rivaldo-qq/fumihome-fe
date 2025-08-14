@@ -7,11 +7,10 @@ export const authInterceptor: RpcInterceptor = {
             ...options.meta,
             authorization: accessToken ? `Bearer ${accessToken}` : '',
             'X-Requested-With': 'XMLHttpRequest',
-            'Origin': 'https://fumihome-fe-brown.vercel.app', 
             'Content-Type': 'application/grpc-web+proto',
             'X-Grpc-Web': '1',
             'X-Bypass-Auth': 'true',
-            'Access-Control-Allow-Origin':'*',
+            'Access-Control-Allow-Origin':'origin',
         }
         return next(method, input, options);
     },
