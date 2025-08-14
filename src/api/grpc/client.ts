@@ -13,17 +13,38 @@ let cartClient: ICartServiceClient | null = null;
 let orderClient: IOrderServiceClient | null = null;
 let newsletterClient: INewsletterServiceClient | null = null;
 
+const enhancedInterceptor = {
+  interceptUnary(next, method, input, options) {
+    // First apply auth interceptor
+    const updatedOptions = authInterceptor.interceptUnary 
+      ? authInterceptor.interceptUnary(next, method, input, options)
+      : next(method, input, options);
+
+    // Add mandatory gRPC-Web headers
+    updatedOptions.meta = {
+      ...updatedOptions.meta,
+      'Content-Type': 'application/grpc-web+proto', // Required
+      'X-Grpc-Web': '1', // Required
+      'X-Requested-With': 'XMLHttpRequest' // Avoids CORS preflight for simple requests
+    };
+
+    return updatedOptions;
+  }
+};
+
+let transport: GrpcWebFetchTransport;
+
 const getWebTransport = () => {
         webTransport = new GrpcWebFetchTransport({
             baseUrl: "https://cors-anywhere.herokuapp.com/https://grpcnya.zeabur.app",
-            interceptors: [authInterceptor],
+            interceptors: [enhancedInterceptor],
              fetchInit: {
              mode: 'cors',
              credentials: 'omit', // Important for CORS
              },
         })
 
-    return webTransport
+    return Transport
 }
 
 
