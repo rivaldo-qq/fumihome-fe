@@ -21,10 +21,6 @@ const getWebTransport = () => {
              fetchInit: {
                 mode: 'cors',
                  credentials: 'omit', // Important for CORS
-                headers: {
-                'Content-Type': 'application/grpc-web+proto', // Required header
-                'X-Grpc-Web': '1' // Required for gRPC-Web
-                }
              }
         })
     }
