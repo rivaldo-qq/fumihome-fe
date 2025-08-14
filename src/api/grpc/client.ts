@@ -23,7 +23,7 @@ const getWebTransport = () => {
                 headers: {
                   'Content-Type': 'application/grpc-web+proto',
                   'X-Grpc-Web': '1'
-                         }
+                         };
               },
         })
     }
