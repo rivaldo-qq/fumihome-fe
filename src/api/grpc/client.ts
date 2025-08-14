@@ -44,7 +44,7 @@ const getWebTransport = () => {
              },
         })
 
-    return Transport
+    return transport
 }
 
 
