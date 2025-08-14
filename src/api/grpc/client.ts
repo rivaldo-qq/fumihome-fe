@@ -23,6 +23,7 @@ const getWebTransport = () => {
              },
                 headers: {
     'X-Requested-With': 'XMLHttpRequest',
+    'Content-Type': 'application/grpc-web+proto'
   }
         })
 
