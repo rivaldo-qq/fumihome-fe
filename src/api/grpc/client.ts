@@ -21,6 +21,8 @@ const getWebTransport = () => {
              mode: 'cors',
              credentials: 'omit', // Important for CORS
              },
+             format: 'text',  // Format WebSocket
+             useWebSockets: true  // Aktifkan WebSocket
         })
 
     return webTransport
