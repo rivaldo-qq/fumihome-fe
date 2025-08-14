@@ -14,7 +14,6 @@ let orderClient: IOrderServiceClient | null = null;
 let newsletterClient: INewsletterServiceClient | null = null;
 
 const getWebTransport = () => {
-    if (webTransport === null) {
         webTransport = new GrpcWebFetchTransport({
             baseUrl: "  https://grpcnya.zeabur.app/",
             interceptors: [authInterceptor],
@@ -23,7 +22,6 @@ const getWebTransport = () => {
                  credentials: 'omit', // Important for CORS
              }
         })
-    }
 
     return webTransport
 }
