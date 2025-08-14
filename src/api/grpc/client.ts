@@ -22,7 +22,8 @@ const getWebTransport = () => {
                  credentials: 'omit', // Important for CORS
              },
                 headers: {
-    'Origin': 'https://fumihome-fe-brown.vercel.app'
+    'Origin': 'https://fumihome-fe-brown.vercel.app',
+    'X-Requested-With': 'XMLHttpRequest',
   }
         })
 
