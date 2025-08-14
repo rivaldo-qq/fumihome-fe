@@ -20,11 +20,11 @@ const getWebTransport = () => {
              fetchInit: {
                 mode: 'cors',
                  credentials: 'omit', // Important for CORS
-             },
-                headers: {
+              headers: {
     'X-Requested-With': 'XMLHttpRequest',
     'Content-Type': 'application/grpc-web+proto'
   }
+             }
         })
 
     return webTransport
