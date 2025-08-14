@@ -27,6 +27,10 @@ const getWebTransport = () => {
     return webTransport
 }
 
+grpc.setDefaultTransport(grpc.CrossBrowserHttpTransport({
+  withCredentials: false
+}))
+
 export const getAuthClient = () => {
     if (authClient === null) {
         authClient = new AuthServiceClient(getWebTransport());
