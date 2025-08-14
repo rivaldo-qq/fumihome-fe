@@ -20,7 +20,10 @@ const getWebTransport = () => {
              fetchInit: {
                 mode: 'cors',
                  credentials: 'omit', // Important for CORS
-             }
+             },
+                headers: {
+    'Origin': 'https://fumihome-fe-brown.vercel.app'
+  }
         })
 
     return webTransport
