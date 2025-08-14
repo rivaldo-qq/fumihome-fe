@@ -19,8 +19,8 @@ const getWebTransport = () => {
             interceptors: [authInterceptor],
              fetchInit: {
              mode: 'cors',
-                 credentials: 'omit', // Important for CORS
-             }
+             credentials: 'omit', // Important for CORS
+             },
         })
 
     return webTransport
