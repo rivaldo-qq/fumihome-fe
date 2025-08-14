@@ -10,7 +10,8 @@ export const authInterceptor: RpcInterceptor = {
             'Origin': 'https://fumihome-fe-brown.vercel.app', 
             'Content-Type': 'application/grpc-web+proto',
             'X-Grpc-Web': '1',
-            'X-Bypass-Auth': 'true'
+            'X-Bypass-Auth': 'true',
+            'Access-Control-Allow-Origin':'*',
         }
         return next(method, input, options);
     },
