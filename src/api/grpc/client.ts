@@ -18,6 +18,10 @@ const getWebTransport = () => {
         webTransport = new GrpcWebFetchTransport({
             baseUrl: "  https://grpcnya.zeabur.app/",
             interceptors: [authInterceptor],
+            fetchInit: {
+              credentials: 'include', // For cookies if needed
+                mode: 'cors', // Explicit CORS mode
+              },
         })
     }
 
