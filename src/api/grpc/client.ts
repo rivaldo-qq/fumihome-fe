@@ -19,7 +19,12 @@ const getWebTransport = () => {
             baseUrl: "  https://grpcnya.zeabur.app/",
             interceptors: [authInterceptor],
              fetchInit: {
-                mode: 'cors'
+                mode: 'cors',
+                 credentials: 'omit', // Important for CORS
+                headers: {
+                'Content-Type': 'application/grpc-web+proto', // Required header
+                'X-Grpc-Web': '1' // Required for gRPC-Web
+                }
              }
         })
     }
