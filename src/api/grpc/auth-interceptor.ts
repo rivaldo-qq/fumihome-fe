@@ -7,7 +7,13 @@ export const authInterceptor: RpcInterceptor = {
             ...options.meta,
             authorization: accessToken ? `Bearer ${accessToken}` : '',
         }
-
+        if (typeof window !== 'undefined') {
+      options.meta = {
+        ...options.meta,
+        'X-Requested-With': 'XMLHttpRequest',
+        'Content-Type': 'application/grpc-web+proto',
+      };
+    }
         return next(method, input, options);
     },
 }
