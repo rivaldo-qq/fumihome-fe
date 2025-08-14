@@ -6,6 +6,19 @@ import { IOrderServiceClient, OrderServiceClient } from "../../../pb/order/order
 import { INewsletterServiceClient, NewsletterServiceClient } from "../../../pb/newsletter/newsletter.client";
 import { authInterceptor } from "./auth-interceptor";
 
+import { GrpcWebFetchTransport } from "@protobuf-ts/grpcweb-transport";
+import { 
+  AuthServiceClient, 
+  ProductServiceClient,
+  CartServiceClient,
+  OrderServiceClient,
+  NewsletterServiceClient
+} from "../../../pb";
+import { RpcInterceptor, RpcOptions, RpcTransport, ServerStreamingCall, UnaryCall } from "@protobuf-ts/runtime-rpc";
+import { MethodInfo } from "@protobuf-ts/runtime";
+
+
+
 let webTransport: GrpcWebFetchTransport | null = null;
 let authClient: IAuthServiceClient | null = null;
 let productClient: IProductServiceClient | null = null;
@@ -13,24 +26,32 @@ let cartClient: ICartServiceClient | null = null;
 let orderClient: IOrderServiceClient | null = null;
 let newsletterClient: INewsletterServiceClient | null = null;
 
-const enhancedInterceptor = {
-  interceptUnary(next, method, input, options) {
-    // First apply auth interceptor
-    const updatedOptions = authInterceptor.interceptUnary 
+c// Type-safe enhanced interceptor
+const enhancedInterceptor: RpcInterceptor = {
+  interceptUnary(
+    next: (method: MethodInfo, input: object, options: RpcOptions) => UnaryCall,
+    method: MethodInfo,
+    input: object,
+    options: RpcOptions
+  ): UnaryCall {
+    // Apply auth interceptor first if exists
+    const updatedOptions = authInterceptor?.interceptUnary 
       ? authInterceptor.interceptUnary(next, method, input, options)
       : next(method, input, options);
 
-    // Add mandatory gRPC-Web headers
-    updatedOptions.meta = {
-      ...updatedOptions.meta,
-      'Content-Type': 'application/grpc-web+proto', // Required
-      'X-Grpc-Web': '1', // Required
-      'X-Requested-With': 'XMLHttpRequest' // Avoids CORS preflight for simple requests
-    };
-
-    return updatedOptions;
+    // Add required gRPC-Web headers
+    return next(method, input, {
+      ...updatedOptions,
+      meta: {
+        ...updatedOptions.meta,
+        'Content-Type': 'application/grpc-web+proto',
+        'X-Grpc-Web': '1',
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    });
   }
 };
+
 
 let transport: GrpcWebFetchTransport;
 
