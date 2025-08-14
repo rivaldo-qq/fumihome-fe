@@ -6,14 +6,9 @@ export const authInterceptor: RpcInterceptor = {
         options.meta = {
             ...options.meta,
             authorization: accessToken ? `Bearer ${accessToken}` : '',
+            'Content-Type': 'application/grpc-web+proto',
+            'X-Grpc-Web': '1'
         }
-        if (typeof window !== 'undefined') {
-      options.meta = {
-        ...options.meta,
-        'Content-Type': 'application/grpc-web+proto',
-      'X-Grpc-Web': '1',
-      'Authorization': `Bearer ${localStorage.getItem('access_token')`
-      }
         return next(method, input, options);
     },
 }
