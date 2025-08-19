@@ -14,24 +14,19 @@ let orderClient: IOrderServiceClient | null = null;
 let newsletterClient: INewsletterServiceClient | null = null;
 
 const getWebTransport = () => {
+    if (webTransport === null) {
         webTransport = new GrpcWebFetchTransport({
-            baseUrl: "https://dc0a5e1c9d72.ngrok-free.app",
+            baseUrl: "http://localhost:8080",
             interceptors: [authInterceptor],
-             fetchInit: {
-             mode: 'cors',
-             credentials: 'omit', // Important for CORS
-             },
-             format: 'text',  // Format WebSocket
-             useWebSockets: true  // Aktifkan WebSocket
         })
+    }
 
     return webTransport
 }
 
-
-
 export const getAuthClient = () => {
     if (authClient === null) {
+ 
         authClient = new AuthServiceClient(getWebTransport());
 
     }
