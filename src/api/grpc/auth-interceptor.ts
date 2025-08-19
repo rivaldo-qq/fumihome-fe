@@ -10,7 +10,7 @@ export const authInterceptor: RpcInterceptor = {
             'content-type': 'application/grpc-web+proto',
             'x-grpc-web': '1',
             'x-bypass-auth': 'true',
-            'access-control-allow-origin':'https://fumihome-fe-brown.vercel.app',
+            'access-control-allow-origin':'https://pi-fumihome.cisha.id',
         }
         return next(method, input, options);
     },
