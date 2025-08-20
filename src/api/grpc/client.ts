@@ -16,7 +16,7 @@ let newsletterClient: INewsletterServiceClient | null = null;
 const getWebTransport = () => {
     if (webTransport === null) {
         webTransport = new GrpcWebFetchTransport({
-            baseUrl: "https://cbfc66511447.ngrok-free.app",
+            baseUrl: "https://244fdfd70f73.ngrok-free.app",
             interceptors: [authInterceptor],
         })
     }
